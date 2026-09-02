@@ -1,24 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-import PlotFigure from "../components/PlotFigure.astro";
-import * as Plot from "@observablehq/plot";
-import penguins from "../data/penguins.json";
-
-const penguinsOptions = {
-  marks: [
-    Plot.dot(penguins, { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "species" })
-  ]
-};
-
 ---
 
-<Layout title="TP Plot">
-  <main>
-    <h1>Penguins</h1>
-    <figure>
-      <PlotFigure options={penguinsOptions} />
-      <figcaption>Longueur vs profondeur du bec, par espèce.</figcaption>
-    </figure>
+<Layout title="Accueil - TP Plot">
+  <main class="min-h-screen bg-gradient-to-br from-rose-100 via-pink-50 to-fuchsia-100 px-4 py-10 text-slate-800">
+    <div class="mx-auto max-w-3xl rounded-[2rem] border border-pink-200/70 bg-white/70 p-8 shadow-[0_20px_50px_rgba(244,114,182,0.18)] backdrop-blur-sm md:p-12">
+      <div class="mb-6 inline-flex items-center rounded-full bg-pink-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-pink-700">
+        TP Data
+      </div>
+
+      <h1 class="text-4xl font-black tracking-tight text-pink-900 md:text-5xl">
+        Visualisation de données
+      </h1>
+
+      <p class="mt-4 max-w-xl text-lg text-pink-700/80">
+        Choisis un thème pour découvrir le graphique associé.
+      </p>
+
+      <nav class="mt-8 flex flex-wrap gap-4" aria-label="Menu principal">
+        <a
+          href="/pingouins"
+          class="inline-flex items-center justify-center rounded-full bg-rose-400 px-6 py-3 text-base font-bold text-white shadow-md shadow-rose-200 transition duration-200 hover:-translate-y-0.5 hover:bg-rose-500"
+        >
+          Pingouins
+        </a>
+        <a
+          href="/meteo"
+          class="inline-flex items-center justify-center rounded-full bg-pink-400 px-6 py-3 text-base font-bold text-white shadow-md shadow-pink-200 transition duration-200 hover:-translate-y-0.5 hover:bg-pink-500"
+        >
+          Météo
+        </a>
+      </nav>
+    </div>
   </main>
 </Layout>
